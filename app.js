@@ -1,34 +1,38 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var port = 3003;
 const AssistantV1 = require('watson-developer-cloud/assistant/v1');
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
 
 app.use(bodyParser.json());
 app.use(express.static('./public'));
 
+const port = 3003;
+
 const assistant = new AssistantV1({
-    username: '7f11e061-5901-4b89-89ec-cb285e18a0a8',
-    password: 'fXeDRAIHnocG',
-    url: 'https://gateway.watsonplatform.net/assistant/api/',
-    version: '2018-02-16'
+  username: "5010d699-4141-409c-a8e4-62f67699fdfe",
+  password: "NcswptIbWFgh",
+  url: 'https://gateway.watsonplatform.net/assistant/api/',
+  version: '2018-02-16',
 });
 
 app.post('/conversation/', (req, res) => {
-    const { text, context = {} } = req.body;
-    //console.log(app);
-    const params = {
-        input: { text },
-        workspace_id: '2df2206a-e7f5-4820-b554-2921353d01ee',
-        context
-    };
+  const { text, context = {} } = req.body;
 
-    assistant.message(params, (err, response) => {
-        if (err) res.status(500).json(err);
+  const params = {
+    input: { text },
+    workspace_id: "d89d4a66-44c9-4266-ba53-20e7d28ebb78",
+    context,
+  };
 
-        res.json(response);
-    });
+  assistant.message(params, (err, response) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json(err);
+    } else {
+      res.json(response);
+    }
+  });
 });
 
-app.listen(port);
-console.log('Servidor rodando em ', port);
+app.listen(port, () => console.log(`Running on port ${port}`));

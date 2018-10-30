@@ -1,9 +1,18 @@
-# chatBot
-ChatBot - SIstemas Convergentes
+# Watson sample chatbot
 
-Módulos necessários para a execução:
-<ul>
-<li><a href="https://www.npmjs.com/package/watson-developer-cloud">npm i watson-developer-cloud --save</a></li>
-<li><a href="https://www.npmjs.com/package/express">npm i express --save</a></li>
-<li><a href="https://www.npmjs.com/package/body-parser">npm i body-parser --save</a></li>
-</ul>
+A simple chatbot using IBM Watson and Node.js
+
+![chat-example](https://cdn-images-1.medium.com/max/800/1*iatsJpNf38Kix_In0ddw3g.gif)
+
+# Intructions
+
+Create the `.env` file with the same content of `.env.example` and add your keys.
+
+Example of how `.env` will look: 
+```
+WORKSPACE_ID=<workspace_id>
+ASSISTANT_USERNAME=<username>
+ASSISTANT_PASSWORD=<password>
+```
+
+To run the project execute in your terminal `node app.js`
