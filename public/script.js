@@ -1,12 +1,12 @@
 const textInput = document.getElementById('textInput');
-const chat = document.getElementById('chat');
+const chat = document.getElementById('chat_window');
 
 let context = {};
 
-const templateChatMessage = (message, from) => `
-  <div class="from-${from}">
-    <div class="message-inner">
-      <p>${message}</p>
+const templateChatMessage = (messages, from) => `
+  <div class="message.${from}">
+    <div class="message">
+      <p>${messages}</p>
     </div>
   </div>
   `;
